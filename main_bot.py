@@ -52,19 +52,6 @@ alpaca_happy=[
     "PWaaaat!",
     "Pwaa ~~ :heart: "
 ]
-@bot.event
-async def on_ready():
-    for guild in bot.guilds:
-        for channel in guild.text_channels :
-            if str(channel) == "general" :
-                await channel.send("Discord bot online!")
-        print('Active in {}\n Member Count : {}'.format(guild.name,guild.member_count))
-    print(f'{bot.user.name} has connected to discord and is now online')
-    print("Connection time: \n")
-    print("--- %s seconds ---" % (time.time() - start_time))
-    print("STARTED!!")
-    showshow=random.choice(prescense)
-    await bot.change_presence(activity=discord.Game(showshow))
 
 file=open("token.txt","r")
 lines=file.readlines()
@@ -93,6 +80,19 @@ async def on_member_join(member):
     embedVar.add_field(name="Let's get started!", value="Type: (@help) to get started!!", inline=False)
     await member.dm_channel.send(f'Hi {member.name}')
     await member.dn_channel.send(embed=embedVar)
+@bot.event
+async def on_ready():
+    for guild in bot.guilds:
+        for channel in guild.text_channels :
+            if str(channel) == "general" :
+                await channel.send("Discord bot online!")
+        print('Active in {}\n Member Count : {}'.format(guild.name,guild.member_count))
+    print(f'{bot.user.name} has connected to discord and is now online')
+    print("Connection time: \n")
+    print("--- %s seconds ---" % (time.time() - start_time))
+    print("STARTED!!")
+    showshow=random.choice(prescense)
+    await bot.change_presence(activity=discord.Game(showshow))
 
 @bot.command(name="harass")
 @commands.cooldown(1,30,BucketType.user)
