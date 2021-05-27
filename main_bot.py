@@ -107,10 +107,6 @@ async def ball(ctx, query):
     print(query)
     response=random.choice(ballresponse)
     await ctx.send(response)
-@bot.command(name="source")
-@commands.cooldown(1,3, commands.BucketType.user)
-async def source(ctx:commands.Context):
-    await ctx.channel.send("Source code is on github! https://github.com/nuggetcatsoftware")
 @bot.command(name="wikipedia")
 @commands.cooldown(1, 3, commands.BucketType.user)
 async def wikipedia(ctx, query):
@@ -169,7 +165,6 @@ async def help(ctx:commands.Context):
     embedVar.add_field(name="Updates", value="Function: Check recent updates\n Syntax: \n $update", inline=False)
     embedVar.add_field(name="Weather", value="Check your local weather with this awesome command! \nSyntax: \n $weather(city)", inline=False)
     embedVar.add_field(name="Ping", value="Check current ping \n Syntax: \n $ping", inline=False)
-    embedVar.add_field(name="Source code", value="Check the source code \n Syntax: \n $source", inline=False)
     embedVar.add_field(name="query", value="For users who question their existence. \n syntax: \n $query", inline=False)
     embedVar.add_field(name="about", value="Know more about Alpaca and his developer!", inline=False)
     embedVar.add_field(name="ball", value="Make life decisions!! \n syntax: \n $ball (stuff)", inline=False)
@@ -240,7 +235,7 @@ async def on_message(message):
 @bot.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
-        embedVar=discord.Embed(title="PWAAAAT!!!. Don't forget, Alpacas are smart enough to detect spam", color=0xff0000)
+        embedVar=discord.Embed(title="Bruh. Don't forget, I am smart enough to detect spam", color=0xff0000)
         embedVar.add_field(name="What a scrub", value=f"Try again after {round(error.retry_after, 2)} seconds!")
         await ctx.send(embed=embedVar)
 
