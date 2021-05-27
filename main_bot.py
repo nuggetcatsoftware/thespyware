@@ -52,7 +52,20 @@ alpaca_happy=[
     "PWaaaat!",
     "Pwaa ~~ :heart: "
 ]
-    
+@bot.event
+async def on_ready():
+    for guild in bot.guilds:
+        for channel in guild.text_channels :
+            if str(channel) == "general" :
+                await channel.send("Discord bot online!")
+        print('Active in {}\n Member Count : {}'.format(guild.name,guild.member_count))
+    print(f'{bot.user.name} has connected to discord and is now online')
+    print("Connection time: \n")
+    print("--- %s seconds ---" % (time.time() - start_time))
+    print("STARTED!!")
+    showshow=random.choice(prescense)
+    await bot.change_presence(activity=discord.Game(showshow))
+
 file=open("token.txt","r")
 lines=file.readlines()
 TOKEN=lines[0]
