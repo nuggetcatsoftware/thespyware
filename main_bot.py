@@ -10,6 +10,7 @@ from discord.ext.commands.core import cooldown
 import random
 import wikipedia
 import  requests
+import threading
 from bs4 import BeautifulSoup
 from urllib import parse, request
 from discord.ext import tasks
